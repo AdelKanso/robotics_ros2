@@ -18,7 +18,7 @@ Autonomous Driving of a Ground Differential Robot by Perception based on [Autora
       Autorace package
 
 ## Complete report
-![Cover](Robotics_report.pdf)
+![Report](Robotics_report.pdf)
 
 ## ScreenShots
 ### Calibration<br>

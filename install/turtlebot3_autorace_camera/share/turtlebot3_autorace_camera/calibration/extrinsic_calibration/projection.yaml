@@ -1,0 +1,22 @@
+# camera:
+#   image_projection:
+#     ros__parameters:
+#       camera:
+#         extrinsic_camera_calibration:
+#           top_x: 231
+#           top_y: -115
+#           bottom_x: 450
+#           bottom_y: 298
+#           top_offset_x: -22
+#           bottom_offset_x: -6
+camera:
+  image_projection:
+    ros__parameters:
+      camera:
+        extrinsic_camera_calibration:
+          top_x: 144
+          top_y: 41
+          bottom_x: 326
+          bottom_y: 129
+          offset_x: -45     # shift trapezoid left
+          offset_y: 160      # shift downward

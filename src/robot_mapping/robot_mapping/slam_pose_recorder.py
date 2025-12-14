@@ -1,0 +1,69 @@
+import rclpy
+from rclpy.node import Node
+from tf2_ros import TransformListener, Buffer, TransformException
+from geometry_msgs.msg import PoseStamped
+import csv
+import math
+import time
+
+class SlamPoseRecorder(Node):
+    def __init__(self):
+        super().__init__('slam_pose_recorder')
+
+        self.tf_buffer = Buffer()
+        self.tf_listener = TransformListener(self.tf_buffer, self)
+
+        self.csv = open("slam_poses.csv", "w", newline="")
+        self.writer = csv.writer(self.csv)
+        self.writer.writerow(["time", "x", "y", "z", "yaw"])
+
+        self.pose_pub = self.create_publisher(PoseStamped, "/slam_pose", 10)
+
+        
+        self.get_logger().info("Waiting for first map->base_link transform...")
+        while rclpy.ok():
+            try:
+                self.tf_buffer.lookup_transform('map', 'base_link', rclpy.time.Time())
+                self.get_logger().info("First transform received! Starting recording.")
+                break
+            except TransformException:
+                time.sleep(0.1)
+
+        
+        self.timer = self.create_timer(0.1, self.timer_cb)  
+
+    def timer_cb(self):
+        try:
+            trans = self.tf_buffer.lookup_transform(
+                'map',
+                'base_link',
+                rclpy.time.Time()
+            )
+        except TransformException:
+            self.get_logger().warn("No transform available yet.")
+            return
+
+        t = trans.transform.translation
+        q = trans.transform.rotation
+
+        
+        yaw = math.atan2(2*(q.w*q.z + q.x*q.y),
+                         1 - 2*(q.y*q.y + q.z*q.z))
+
+        time_now = self.get_clock().now().nanoseconds / 1e9  
+        self.writer.writerow([time_now, t.x, t.y, t.z, yaw])
+        self.csv.flush()
+
+        pose = PoseStamped()
+        pose.header.frame_id = "map"
+        pose.header.stamp = self.get_clock().now().to_msg()
+        pose.pose.position = t
+        pose.pose.orientation = q
+        self.pose_pub.publish(pose)
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = SlamPoseRecorder()
+    rclpy.spin(node)
+    node.csv.close()
+    rclpy.shutdown()

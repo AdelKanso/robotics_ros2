@@ -18,7 +18,7 @@ Autonomous Driving of a Ground Differential Robot by Perception based on [Autora
       Autorace package
 
 ## Complete report
-under ./Robotics_report.pdf
+![Cover](Robotics_report.pdf)
 
 ## ScreenShots
 ### Calibration<br>
@@ -47,15 +47,15 @@ under ./Robotics_report.pdf
 
 ### Navigation<br>
 
-![Cover](images/nav.jpeg)
+![Navigation Video](images/nav.jpeg)
 
 ## Demo
 ### Lane Detection<br>
-![Collect](videos/lane.mp4)
+![Lane Detection Video](videos/lane.mp4)
 
 ### Collect the surrounding <br>
-![Collect](videos/collect.mp4)
+![Narrow ](videos/collect.mp4)
 
 ### Navigation <br>
-![Collect](videos/nav.mp4)
+![Collect Surrounding](videos/nav.mp4)
 

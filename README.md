@@ -22,25 +22,25 @@ Autonomous Driving of a Ground Differential Robot by Perception based on [Autora
 under ./Robotics_report.pdf
 
 ## ScreenShots
-Calibration
+###Calibration
 ![Cover](images/calib.jpeg)
 
-Projected image
+###Projected image
 ![Cover](images/projected.jpeg)
 
-Lane Detection
+###Lane Detection
 ![Cover](images/lane.jpeg)
 
-Slam Map
+###Slam Map
 ![Cover](images/slam_map.jpeg)
 
-Trajectory on Map
+###Trajectory on Map
 ![Cover](images/traj.jpeg)
 
-Trajectory Map
+###Trajectory Map
 ![Cover](images/road_map.jpeg)
 
-Navigation
+###Navigation
 ![Cover](images/nav.jpeg)
 
 

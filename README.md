@@ -1,10 +1,9 @@
 # robotics_ros2
 # Autonomous-Driving Turtlebot3 Using Camera based Lane Tracking
 
-Supervised by: Joaquin Jorge Rodriguez
 Submitted By: Adel KANSO and Mariam Janbein
+Supervised by: Joaquin Jorge Rodriguez
 
-![Cover](images/cover.png)
 
 ## Project Goal
 Autonomous Driving of a Ground Differential Robot by Perception based on [Autorace Challenge][1]. Main task was to detect the lanes and make the robot follow lane and complete the mission. In the circuit provided robot has to go through a low light tunnel also.

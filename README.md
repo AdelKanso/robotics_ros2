@@ -9,13 +9,8 @@ Supervised by: Joaquin Jorge Rodriguez
 Autonomous Driving of a Ground Differential Robot by Perception based on [Autorace Challenge][1]. Main task was to detect the lanes and make the robot follow lane and complete the mission. In the circuit provided robot has to go through a low light tunnel also.
 
 ## Required Libraries and Packages to Start
-      ros-noetic-image-transport 
-      ros-noetic-cv-bridge 
-      ros-noetic-vision-opencv 
-      opencv 
-      libopencv-dev 
-      ros-noetic-image-proc
-      Autorace package
+sudo apt install ros-humble-navigation2 ros-humble-nav2-bringup
+sudo apt install ros-humble-turtlebot3*
 
 ## Complete report
 ![Report](Robotics_report.pdf)
@@ -58,4 +53,6 @@ Autonomous Driving of a Ground Differential Robot by Perception based on [Autora
 
 ### Navigation <br>
 ![Collect Surrounding](videos/nav.mp4)
+
+##PS: Developed with ROS2 humble 
 
